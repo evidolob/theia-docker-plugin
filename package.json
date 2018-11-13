@@ -1,0 +1,45 @@
+{
+	"name": "docker",
+	"displayName": "Dockerfile syntax colorizer",
+	"description": "Provide syntax highlight for Dockerfile",
+	"version": "1.0.0",
+	"publisher": "yvydolob",
+	"engines": {
+		"vscode": "*",
+		"theiaPlugin": "latest"
+	},
+	"scripts": {
+		"prepare": "yarn run build",
+		"build": "theia:plugin pack"
+	},
+	"contributes": {
+		"languages": [
+			{
+				"id": "dockerfile",
+				"extensions": [
+					".dockerfile"
+				],
+				"filenames": [
+					"Dockerfile"
+				],
+				"aliases": [
+					"Dockerfile"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "dockerfile",
+				"scopeName": "source.dockerfile",
+				"path": "./syntaxes/docker.tmLanguage.json"
+			}
+		]
+	},
+	"devDependencies": {
+		"@theia/plugin-packager": "latest"
+	},
+	"theiaPlugin": {
+		"backend": "index.js"
+	}
+}
